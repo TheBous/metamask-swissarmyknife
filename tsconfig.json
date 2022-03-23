@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "declaration": true,
+    "declarationDir": "./build/declaration",
+    "module": "es6",
+    "noImplicitAny": false,
+    "outDir": "./build",
+    "target": "es6",
+    "esModuleInterop": true,
+    "moduleResolution": "node"
+  },
+  "include": ["src/**/*", "declaration"],
+  "exclude": ["node_modules"]
+}

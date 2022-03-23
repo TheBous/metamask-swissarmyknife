@@ -1,0 +1,13 @@
+node_modules
+.DS_Store
+package-lock.json
+yarn.lock
+yarn-error.log
+.idea
+.vscode
+docs/services
+docs/utils
+docs/worker
+docs/*.d.ts
+coverage
+stats.html

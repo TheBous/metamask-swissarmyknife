@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Metamask swiss knife</title>
+  </head>
+  <body>
+    <script src="bundle.cjs.js"></script>
+    <script type="module">
+      var metamaskSwissKnife = new Provider();
+      console.error(metamaskSwissKnife);
+
+      await metamaskSwissKnife.retrieveAccounts();
+
+      const metamask = document.querySelector("#metamask");
+      const accounts = document.createElement("div");
+      accounts.classList.add("__accounts");
+      accounts.innerHTML = `Accounts: ${metamaskSwissKnife.getAccounts()}`;
+      metamask.appendChild(accounts);
+    </script>
+    <h1>Metamask swiss knife</h1>
+    <div id="metamask"></div>
+  </body>
+</html>
