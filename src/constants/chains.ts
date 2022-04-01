@@ -1,4 +1,4 @@
-import { GenericChains } from '../types/index';
+import { GenericChains } from '../types/chains';
 
 export const chains: GenericChains = {
   mainnet: '1',

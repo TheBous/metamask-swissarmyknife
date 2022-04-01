@@ -7,5 +7,3 @@ declare global {
     ethereum: MetaMaskInpageProvider;
   }
 }
-
-export type GenericChains = Record<string, string>;

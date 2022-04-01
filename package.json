@@ -31,7 +31,8 @@
     "commit": "npx git-cz"
   },
   "dependencies": {
-    "@metamask/providers": "^8.1.1"
+    "@metamask/providers": "^8.1.1",
+    "eth-rpc-errors": "^4.0.3"
   },
   "devDependencies": {
     "@babel/core": "^7.12.10",

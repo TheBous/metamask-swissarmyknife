@@ -11,4 +11,5 @@ docs/worker
 docs/*.d.ts
 coverage
 stats.html
-build/*.js
+build/**/*.js
+build/declaration
