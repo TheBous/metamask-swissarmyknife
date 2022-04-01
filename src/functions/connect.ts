@@ -5,7 +5,7 @@ import { chains } from '../constants/chains';
 import { GenericChains } from '../types/chains';
 import { EventsCallbacks } from '../types/events';
 
-import { getEvents } from './getEvents';
+import { getEvents } from '../helpers/getEvents';
 
 type GenericSettings = {
   requestPermission?: boolean;
@@ -38,6 +38,11 @@ class Provider {
     });
   }
 
+  #isUnlocked = async (): Promise<boolean> => {
+    const isUnlocked = await this.#provider._metamask.isUnlocked();
+    return isUnlocked;
+  }
+
   #initializeEvents = (callbacks: EventsCallbacks) => {
     getEvents(this.#provider, callbacks);
   };
@@ -52,7 +57,7 @@ class Provider {
     });
 
   retrieveAccounts = async (settings: GenericSettings = {}): Promise<void> => {
-    const { requestPermission = false } = settings;
+    const { requestPermission = true } = settings;
     try {
       const accounts: string[] = await this.#provider.request({
         method: requestPermission ? 'eth_requestAccounts' : 'eth_accounts',
@@ -60,13 +65,19 @@ class Provider {
       });
       if (accounts.length) this.#accounts = accounts;
     } catch (error) {
-      // eslint-disable-next-line no-console
       console.error(error);
       throw Error(error);
     }
   };
 
-  getAccounts = () => this.#accounts;
+  getPermissions = () => this.#provider.request({
+    method: 'wallet_requestPermissions',
+    params: [{ eth_accounts: {} }],
+  });
+
+  getAccounts = (): string[] => this.#accounts;
+
+  isConnected = (): boolean => this.#provider.isConnected();
 }
 
 export default Provider;

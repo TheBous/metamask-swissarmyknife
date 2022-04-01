@@ -6,7 +6,7 @@ import { ProviderRpcError } from '../types/error';
 import { ConnectInfo } from '../types/connect';
 import { EventsCallbacks } from '../types/events';
 
-import { fromHex } from '../helpers/hex';
+import { fromHex } from './hex';
 
 export const getEvents = (provider: MetaMaskInpageProvider, {
   onAccountsChanged,

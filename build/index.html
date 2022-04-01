@@ -11,6 +11,7 @@
       var metamaskSwissKnife = new Provider();
 
       await metamaskSwissKnife.retrieveAccounts();
+      console.error(await metamaskSwissKnife.getPermissions());
 
       const metamask = document.querySelector("#metamask");
       const accounts = document.createElement("div");
