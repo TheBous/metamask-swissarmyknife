@@ -12,7 +12,7 @@ import typescript from "rollup-plugin-typescript2";
 const NODE_ENV = process.env.NODE_ENV || "development";
 
 export default {
-  input: NODE_ENV === "development" ? "./src/functions/connect.ts" : "./src/index.ts",
+  input: NODE_ENV === "development" ? "./src/metamask/functions/metamask.ts" : "./src/index.ts",
   output: [
     {
       file: "./build/bundle.umd.js",

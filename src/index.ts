@@ -1,2 +1,2 @@
-export * from './functions/connect';
-export * from './constants/chains';
+export * from './metamask/functions/metamask';
+export * from './metamask/constants/chains';
